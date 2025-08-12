@@ -1,9 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "format": "prettier --write ."
+
   },
   "keywords": [],
   "author": "Vignesh",
@@ -11,6 +16,7 @@
   "description": "Backend for notes app",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "cookie-session": "^2.1.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
@@ -19,5 +25,9 @@
     "mongoose": "^8.17.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
   }
 }
