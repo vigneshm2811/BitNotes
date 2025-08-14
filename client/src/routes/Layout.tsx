@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 
 const Layout: React.FC = () => {
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(true);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-slate-900 dark:to-zinc-900 flex justify-center p-4 transition-all duration-500">
