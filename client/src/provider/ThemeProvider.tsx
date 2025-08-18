@@ -23,14 +23,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    // Debug: Log current state
-    console.log('ThemeProvider mounted');
-    
     const savedTheme = localStorage.getItem('theme') as Theme;
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    console.log('Saved theme:', savedTheme);
-    console.log('Prefers dark:', prefersDark);
     
     const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
     console.log('Initial theme:', initialTheme);
@@ -40,30 +34,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, []);
 
   const applyTheme = (newTheme: Theme) => {
-    const root = document.documentElement;
-
-    console.log('Applying theme:', newTheme);
-    console.log('Document element classes before:', document.documentElement.className);
-    
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark');  
-      root.setAttribute('data-theme', newTheme);
-
     } else {
       document.documentElement.classList.remove('dark');
-      root.setAttribute('data-theme', newTheme);
-
-    }
-    
-    console.log('Document element classes after:', document.documentElement.className);
+       }
   };
 
-  const toggleTheme = () => {
-    console.log('Toggle theme clicked, current theme:', theme);
-    
+  const toggleTheme = () => { 
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    console.log('New theme will be:', newTheme);
-    
     setTheme(newTheme);
     applyTheme(newTheme);
     localStorage.setItem('theme', newTheme);
